@@ -1,31 +1,31 @@
 [
     {
-        "model": "repairsapi.game",
+        "model": "levelupapi.game",
         "pk": 1,
         "fields": {
             "title": "Root",
-            "numberOfPlayers": 10,
-            "skillLevel": 7,
+            "number_of_players": 10,
+            "skill_level": 7,
             "maker": "Leder Games"
         }
     },
     {
-        "model": "repairsapi.game",
+        "model": "levelupapi.game",
         "pk": 2,
         "fields": {
             "title": "Zombicide",
-            "numberOfPlayers": 8,
-            "skillLevel": 9,
+            "number_of_players": 8,
+            "skill_level": 9,
             "maker": "Guillotine Games"
         }
     },
     {
-        "model": "repairsapi.game",
+        "model": "levelupapi.game",
         "pk": 3,
         "fields": {
             "title": "Phase 10",
-            "numberOfPlayers": 6,
-            "skillLevel": 4,
+            "number_of_players": 6,
+            "skill_level": 4,
             "maker": "Kenneth Johnson"
         }
     }

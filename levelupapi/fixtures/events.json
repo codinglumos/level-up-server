@@ -1,29 +1,29 @@
 [
     {
-        "model": "repairsapi.event",
+        "model": "levelupapi.event",
         "pk": 1,
         "fields": {
             "description": "A co-op game with multiple perspectives",
-            "date": 101022,
-            "time": 45454
+            "date": "2010-10-22",
+            "time": "05:24"
         }
     },
     {
-        "model": "repairsapi.event",
+        "model": "levelupapi.event",
         "pk": 2,
         "fields": {
             "description": "A game of strategy and deception",
-            "date": 110224,
-            "time": 45454
+            "date": "2011-02-24",
+            "time": "10:30"
         }
     },
     {
-        "model": "repairsapi.event",
+        "model": "levelupapi.event",
         "pk": 3,
         "fields": {
             "description": "A fun game for all ages",
-            "date": 42497,
-            "time": 45454
+            "date": "2021-04-20",
+            "time": "05:22"
         }
     }
 ]

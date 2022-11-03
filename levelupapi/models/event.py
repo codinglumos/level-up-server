@@ -8,4 +8,5 @@ class Event(models.Model):
     description = models.CharField(max_length=250)
     date = models.DateField()
     time = models.TimeField(auto_now=True)
-    user = models.ForeignKey("User", on_delete=models.CASCADE, related_name='user', null=True, blank=True)
+    organizer = models.ForeignKey("Gamer", on_delete=models.CASCADE, related_name='organizer', null=True, blank=True)
+    attendees = models.ManyToManyField("Gamer")

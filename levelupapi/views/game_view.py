@@ -4,6 +4,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from levelupapi.models import Game
+from levelupapi.models import GameType
+from levelupapi.models import Gamer
 
 
 class GameView(ViewSet):
@@ -28,7 +30,24 @@ class GameView(ViewSet):
         serializer = GameSerializer(game, context={'request': request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    def create(self, request):
+        """Handle POST operations
 
+        Returns
+            Response -- JSON serialized game instance
+        """
+        new_game = Game()
+        new_game.gamer = Gamer.objects.get(user=request.auth.user)
+        new_game.game_type = GameType.objects.get(pk=request.data['game_type'])
+        new_game.title = request.data['title']
+        new_game.number_of_players = request.data['number_of_players']
+        new_game.skill_level = request.data['skill_level']
+        new_game.maker = request.data['maker']
+        new_game.save()
+
+        serialized = GameSerializer(new_game, many=False)
+
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
 
 class GameSerializer(serializers.ModelSerializer):
     """JSON serializer for games

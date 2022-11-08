@@ -3,31 +3,13 @@ from django.http import HttpResponseServerError
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from levelupapi.models import Event
+from levelupapi.models.event import Event
 from levelupapi.models.game import Game
 from levelupapi.models.gamer import Gamer
 
 
 class EventView(ViewSet):
     """Level up events view"""
-    # def update(self, request, pk=None):
-    #     """Handle PUT requests for a game
-
-    #     Returns:
-    #         Response -- Empty body with 204 status code
-    #     """
-
-    #     game = Event.objects.get(pk=pk)
-    #     game.title = request.data['title']
-    #     game.maker = request.data['maker']
-    #     game.number_of_players = request.data['number_of_players']
-    #     game.skill_level = request.data['skill_level']
-
-    #     game_type = GameType.objects.get(pk=request.data['game_type'])
-    #     game.game_type = game_type
-    #     game.save()
-
-    #     return Response(None, status=status.HTTP_204_NO_CONTENT)
     
     def list(self, request):
         """Handle GET requests to get all events
@@ -39,7 +21,7 @@ class EventView(ViewSet):
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def retrieve(self, request, pk):
+    def retrieve(self, request, pk=None):
         """Handle GET requests for single event
 
         Returns:
@@ -65,10 +47,26 @@ class EventView(ViewSet):
 
             return Response(serialized.data, status=status.HTTP_201_CREATED)
 
+    def update(self, request, pk=None):
+        """Handle PUT requests for a event
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        event = Event.objects.get(pk=pk)
+        event.description = request.data['description']
+        event.organizer = request.data['organizer']
+        event.date = request.data['date']
+        event.time = request.data['time']
+        event.game = Game.objects.get(pk=request.data['game'])
+        event.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
 
 class EventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
     """
     class Meta:
         model = Event
-        fields = ('id', 'game', 'description', 'date', 'time', 'organizer',)
+        fields = ('id', 'game', 'description', 'date', 'time', 'organizer', 'attendees',)
+        depth = 2

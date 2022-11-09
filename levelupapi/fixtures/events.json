@@ -6,7 +6,7 @@
             "description": "A co-op game with multiple perspectives",
             "date": "2010-10-22",
             "time": "05:24",
-            "oraganizer": "Olivia"
+            "organizer": 1
         }
     },
     {
@@ -16,7 +16,7 @@
             "description": "A game of strategy and deception",
             "date": "2011-02-24",
             "time": "10:30",
-            "oraganizer": "Luna"
+            "organizer": 1
         }
     },
     {
@@ -26,7 +26,7 @@
             "description": "A fun game for all ages",
             "date": "2021-04-20",
             "time": "05:22",
-            "oraganizer": "Toad"
+            "organizer": 1
         }
     }
 ]

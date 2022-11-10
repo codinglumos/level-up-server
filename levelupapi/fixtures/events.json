@@ -5,8 +5,7 @@
         "fields": {
             "description": "A co-op game with multiple perspectives",
             "date": "2010-10-22",
-            "time": "05:24",
-            "organizer": 1
+            "time": "05:24"
         }
     },
     {
@@ -15,8 +14,7 @@
         "fields": {
             "description": "A game of strategy and deception",
             "date": "2011-02-24",
-            "time": "10:30",
-            "organizer": 1
+            "time": "10:30"
         }
     },
     {
@@ -25,8 +23,7 @@
         "fields": {
             "description": "A fun game for all ages",
             "date": "2021-04-20",
-            "time": "05:22",
-            "organizer": 1
+            "time": "05:22"
         }
     }
 ]
